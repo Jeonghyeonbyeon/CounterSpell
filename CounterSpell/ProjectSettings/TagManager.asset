@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - LoveLetter
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1227610653
+    locked: 0
+  - name: Environment
+    uniqueID: 2928779285
+    locked: 0
+  - name: Characters
+    uniqueID: 3402335143
+    locked: 0
+  - name: Dynamic Objects
+    uniqueID: 3976413769
+    locked: 0
+  - name: Effects
+    uniqueID: 2232026245
+    locked: 0
+  - name: UI
+    uniqueID: 3909220629
+    locked: 0
