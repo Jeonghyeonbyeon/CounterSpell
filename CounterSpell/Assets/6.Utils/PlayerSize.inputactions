@@ -1,0 +1,98 @@
+{
+    "name": "PlayerSize",
+    "maps": [
+        {
+            "name": "PlayerSize",
+            "id": "963043cc-97d2-4678-94f1-d66ee4b3c9fb",
+            "actions": [
+                {
+                    "name": "SizeIncrease",
+                    "type": "Button",
+                    "id": "4e6bfda5-172a-4ae5-ac03-ce853682b2b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "SizeDecrease",
+                    "type": "Button",
+                    "id": "1ca8548b-fda9-4521-b755-c89eef4f879c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "One Modifier",
+                    "id": "1f6bdb4f-e1ab-45d3-be20-e35b0bb03e68",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SizeIncrease",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "e336f59a-d591-4f0b-8dd2-397c7dceab90",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SizeIncrease",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "177dc531-9c33-4965-9774-8669d655a9f4",
+                    "path": "<Keyboard>/equals",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SizeIncrease",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "1e0ff25a-11d7-4992-89ee-fae2f69a83e8",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SizeDecrease",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "d63cad98-cd42-4c35-beb0-1bf1d70d83de",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SizeDecrease",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "fe9570b2-e79d-4c55-95dd-319b30cb8c95",
+                    "path": "<Keyboard>/minus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SizeDecrease",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Transform startPos;
     [SerializeField] private Image transitionImage;
     [SerializeField] private float transitionDuration = 1.0f;
+    [SerializeField] private GameObject helpImage;
 
     public int Stage { get; private set; } = 0;
 
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
             stageManager.UpdateStage(Stage);
             SetPlayerPos();
+            DisableAllHelp();
         }
     }
 
@@ -48,6 +50,7 @@ public class GameManager : MonoBehaviour
             stageUI[Stage].SetActive(true);
             stageManager.UpdateStage(Stage);
             SetPlayerPos();
+            DisableAllHelp();
         }
 
         yield return StartCoroutine(OpenTransition());
@@ -96,6 +99,18 @@ public class GameManager : MonoBehaviour
         if (startPos != null)
         {
             player.transform.position = startPos.position;
+        }
+    }
+
+    private void DisableAllHelp()
+    {
+        if (helpImage != null)
+        {
+            foreach (Transform child in helpImage.transform)
+            {
+                child.gameObject.SetActive(false);
+            }
+            helpImage.SetActive(false);
         }
     }
 }

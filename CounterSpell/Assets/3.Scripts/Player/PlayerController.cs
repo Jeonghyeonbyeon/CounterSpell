@@ -70,4 +70,14 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector2(-2.5f, 2.75f);
         }
     }
+
+    public void SetJumpPower(float newJumpPower)
+    {
+        jumpPower = newJumpPower;
+    }
+
+    public void SetScale(Vector3 newScale)
+    {
+        transform.localScale = newScale;
+    }
 }

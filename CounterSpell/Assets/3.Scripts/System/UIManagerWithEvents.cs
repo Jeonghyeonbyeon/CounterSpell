@@ -5,34 +5,31 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
-public class UIManagerWithInputSystem : MonoBehaviour
+public class UIManagerWithEvents : MonoBehaviour
 {
     [SerializeField] private List<Button> textButtons;
     [SerializeField] private List<GameObject> selectionObjects;
+    [SerializeField] private GameObject targetObject;
     private Button selectedButton;
     private InputAction controlKeyAction;
-    private InputAction shiftKeyAction;
-    private InputAction hKeyAction;
+    private InputAction iKeyAction;
 
     private void Awake()
     {
         controlKeyAction = new InputAction("ControlKey", binding: "<Keyboard>/leftCtrl");
-        shiftKeyAction = new InputAction("ShiftKey", binding: "<Keyboard>/leftShift");
-        hKeyAction = new InputAction("HKey", binding: "<Keyboard>/h");
+        iKeyAction = new InputAction("IKey", binding: "<Keyboard>/i");
     }
 
     private void OnEnable()
     {
         controlKeyAction.Enable();
-        shiftKeyAction.Enable();
-        hKeyAction.Enable();
+        iKeyAction.Enable();
     }
 
     private void OnDisable()
     {
         controlKeyAction.Disable();
-        shiftKeyAction.Disable();
-        hKeyAction.Disable();
+        iKeyAction.Disable();
     }
 
     private void Start()
@@ -51,11 +48,12 @@ public class UIManagerWithInputSystem : MonoBehaviour
 
     private void Update()
     {
-        if (controlKeyAction.ReadValue<float>() == 1 && shiftKeyAction.ReadValue<float>() == 1 && hKeyAction.ReadValue<float>() == 1)
+        if (controlKeyAction.ReadValue<float>() == 1 && iKeyAction.ReadValue<float>() == 1)
         {
             if (selectedButton != null)
             {
-                ChangeTextColorAndToggleCollider(selectedButton);
+                ChangeTextToBoldAndItalic(selectedButton);
+                AddJumpPadToTarget(targetObject);
             }
         }
 
@@ -77,18 +75,25 @@ public class UIManagerWithInputSystem : MonoBehaviour
         selectedButton = textButtons[index];
     }
 
-    private void ChangeTextColorAndToggleCollider(Button button)
+    private void ChangeTextToBoldAndItalic(Button button)
     {
         Text buttonText = button.GetComponentInChildren<Text>();
         if (buttonText != null)
         {
-            buttonText.color = Color.black;
+            buttonText.fontStyle = FontStyle.Bold | FontStyle.Italic;
         }
+    }
 
-        Collider2D collider = button.GetComponentInChildren<Collider2D>();
-        if (collider != null && !collider.enabled)
+    private void AddJumpPadToTarget(GameObject target)
+    {
+        if (target != null)
         {
-            collider.enabled = true;
+            JumpPad jumpPad = target.GetComponent<JumpPad>();
+            if (jumpPad == null)
+            {
+                jumpPad = target.AddComponent<JumpPad>();
+            }
+            jumpPad.jumpPower = 350f;
         }
     }
 
