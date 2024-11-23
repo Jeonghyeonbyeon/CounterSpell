@@ -65,5 +65,9 @@ public class PlayerController : MonoBehaviour
         {
             isGround = true;
         }
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            transform.position = new Vector2(-2.5f, 2.75f);
+        }
     }
 }
