@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
             stageManager.UpdateStage(Stage);
-            MovePlayerToStart();
+            SetPlayerPos();
         }
     }
 
@@ -36,11 +36,11 @@ public class GameManager : MonoBehaviour
         {
             stageUI[Stage].SetActive(true);
             stageManager.UpdateStage(Stage);
-            MovePlayerToStart();
+            SetPlayerPos();
         }
     }
 
-    private void MovePlayerToStart()
+    private void SetPlayerPos()
     {
         if (startPos != null)
         {
