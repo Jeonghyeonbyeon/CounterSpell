@@ -11,7 +11,7 @@ public class BackgroundSwitcher : MonoBehaviour
     [SerializeField] private Image backgroundImage;
     private InputAction controlKeyAction;
     private InputAction shiftKeyAction;
-    private InputAction nineKeyAction;
+    private InputAction lKeyAction;
     private bool isWhiteBackground = true;
     private bool isKeyPressed = false;
 
@@ -19,26 +19,26 @@ public class BackgroundSwitcher : MonoBehaviour
     {
         controlKeyAction = new InputAction("ControlKey", binding: "<Keyboard>/leftCtrl");
         shiftKeyAction = new InputAction("ShiftKey", binding: "<Keyboard>/leftShift");
-        nineKeyAction = new InputAction("NineKey", binding: "<Keyboard>/9");
+        lKeyAction = new InputAction("LKey", binding: "<Keyboard>/L");
     }
 
     private void OnEnable()
     {
         controlKeyAction.Enable();
         shiftKeyAction.Enable();
-        nineKeyAction.Enable();
+        lKeyAction.Enable();
     }
 
     private void OnDisable()
     {
         controlKeyAction.Disable();
         shiftKeyAction.Disable();
-        nineKeyAction.Disable();
+        lKeyAction.Disable();
     }
 
     private void Update()
     {
-        if (controlKeyAction.ReadValue<float>() == 1 && shiftKeyAction.ReadValue<float>() == 1 && nineKeyAction.ReadValue<float>() == 1)
+        if (controlKeyAction.ReadValue<float>() == 1 && shiftKeyAction.ReadValue<float>() == 1 && lKeyAction.ReadValue<float>() == 1)
         {
             if (!isKeyPressed)
             {

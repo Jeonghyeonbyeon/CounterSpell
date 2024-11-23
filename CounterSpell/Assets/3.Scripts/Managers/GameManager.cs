@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private StageManager stageManager;
     [SerializeField] private GameObject player;
     [SerializeField] private Transform startPos;
+    [SerializeField] private Image transitionImage;
+    [SerializeField] private float transitionDuration = 1.0f;
 
     public int Stage { get; private set; } = 0;
 
@@ -25,6 +27,15 @@ public class GameManager : MonoBehaviour
 
     public void UpdateStage()
     {
+        StartCoroutine(StageTransition());
+    }
+
+    private IEnumerator StageTransition()
+    {
+        player.SetActive(false);
+
+        yield return StartCoroutine(CloseTransition());
+
         if (Stage < stageUI.Length)
         {
             stageUI[Stage].SetActive(false);
@@ -37,6 +48,46 @@ public class GameManager : MonoBehaviour
             stageUI[Stage].SetActive(true);
             stageManager.UpdateStage(Stage);
             SetPlayerPos();
+        }
+
+        yield return StartCoroutine(OpenTransition());
+
+        player.SetActive(true);
+    }
+
+    private IEnumerator CloseTransition()
+    {
+        if (transitionImage != null)
+        {
+            transitionImage.gameObject.SetActive(true);
+            transitionImage.fillAmount = 0;
+
+            float elapsedTime = 0f;
+            while (elapsedTime < transitionDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                transitionImage.fillAmount = Mathf.Lerp(0, 1, elapsedTime / transitionDuration);
+                yield return null;
+            }
+
+            transitionImage.fillAmount = 1;
+        }
+    }
+
+    private IEnumerator OpenTransition()
+    {
+        if (transitionImage != null)
+        {
+            float elapsedTime = 0f;
+            while (elapsedTime < transitionDuration)
+            {
+                elapsedTime += Time.deltaTime;
+                transitionImage.fillAmount = Mathf.Lerp(1, 0, elapsedTime / transitionDuration);
+                yield return null;
+            }
+
+            transitionImage.fillAmount = 0;
+            transitionImage.gameObject.SetActive(false);
         }
     }
 

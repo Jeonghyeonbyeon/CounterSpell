@@ -13,7 +13,7 @@ public class StageManager : MonoBehaviour
         StageData stageData = Resources.Load<StageData>($"Prefabs/StageData/Stage {stageIndex}");
 
         UpdateTitleText(stageData.StageName);
-        SpawnLoveLetter(stageData.LoveLetterSpawnPos);
+        StartCoroutine(SpawnLoveLetter(stageData.LoveLetterSpawnPos));
     }
 
     private void UpdateTitleText(string stageName)
@@ -28,8 +28,9 @@ public class StageManager : MonoBehaviour
         }
     }
 
-    private void SpawnLoveLetter(Vector3 spawnPosition)
+    private IEnumerator SpawnLoveLetter(Vector3 spawnPosition)
     {
+        yield return new WaitForSeconds(1.25f);
         Instantiate(loveLetterPrefab, spawnPosition, Quaternion.identity);
     }
 }
