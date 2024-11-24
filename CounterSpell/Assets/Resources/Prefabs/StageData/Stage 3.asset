@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Stage 3
   m_EditorClassIdentifier: 
   stageName: "\uC804\uD654\uD560\uAE4C?"
-  loveLetterSpawnPos: {x: 0.375, y: -2.87}
+  loveLetterSpawnPos: {x: -0.09, y: -2.87}
