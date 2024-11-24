@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LoveLetter : MonoBehaviour
 {
@@ -28,8 +29,15 @@ public class LoveLetter : MonoBehaviour
     {
         if (collider.CompareTag("Player"))
         {
-            GameManager.Instance.UpdateStage();
-            Destroy(gameObject);
+            if (GameManager.Instance.Stage <= 5)
+            {
+                GameManager.Instance.UpdateStage();
+                Destroy(gameObject);
+            }
+            else
+            {
+                SceneManager.LoadScene("InGame");
+            }
         }
     }
 }

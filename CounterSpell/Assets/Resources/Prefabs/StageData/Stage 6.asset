@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fb53aeeda3204e85b33ee6edbfcf1cf, type: 3}
-  m_Name: Stage 2
+  m_Name: Stage 6
   m_EditorClassIdentifier: 
-  stageName: "\uBB50\uD574?"
-  loveLetterSpawnPos: {x: 6.65, y: -1.81}
+  stageName: "\uC9C0\uC5F0\uC774\uC758 \uD55C\uB9C8\uB514"
+  loveLetterSpawnPos: {x: 5.599338, y: 2.587834}

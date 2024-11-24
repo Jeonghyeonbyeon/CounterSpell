@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class StageManager : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class StageManager : MonoBehaviour
     {
         StageData stageData = Resources.Load<StageData>($"Prefabs/StageData/Stage {stageIndex}");
 
-        UpdateTitleText(stageData.StageName);
-        StartCoroutine(SpawnLoveLetter(stageData.LoveLetterSpawnPos));
+        if (stageData != null)
+        {
+            UpdateTitleText(stageData.StageName);
+            StartCoroutine(SpawnLoveLetter(stageData.LoveLetterSpawnPos));
+        }
     }
 
     private void UpdateTitleText(string stageName)
